@@ -1,71 +1,891 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.9.0">
-  <title>llxu</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="resume.css">
-</head>
 
-  <body>
-  <div class="container">
-  <header>
-    <div class="name-wrapper">
-      <div id="fullname" class="title">
-        
-      </div>
-      <div id="jobtitle" class="sub-title">
-        
-      </div>
-    </div>
-    <div id="contact" class="contact">
-      
-    </div>
-    <div class="portrait">
-      
-    </div>
-  </header>
 
-  <section id="education">
-    <div class="section-title">
-      Education
-    </div>
-    <div class="section-content">
-      
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="section-title">
-      Experience
-    </div>
-    <div class="section-content">
-      
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="section-title">
-      Projects
-    </div>
-    <div class="section-content">
-      
-    </div>
-  </section>
-
-  <section id="skills">
-      <div class="section-title">
-        Skills
-      </div>
-      <div class="section-content">
-        
-      </div>
-    </section>
-
-</div>
 
   
-  </body>
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="多线程与多进程的区别多线程程序在较低的层次上扩展了多任务的概念：一个程序同时执行多个任务。通常，每一个任务称为是一个线程(thread)，它是线程控制的简称。可以同时运行一个以上线程的程序称为多线程程序。多进程与多线程本质的区别在于每个进程拥有自己的一整套变量，而线程则共享数据。 中断线程没有可以强制线程终止的办法。然而，interrupt方法可以用来请求中断线程。当对一个线程调用interrup">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 并发">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/Java-并发/index.html">
+<meta property="og:site_name" content="llxu">
+<meta property="og:description" content="多线程与多进程的区别多线程程序在较低的层次上扩展了多任务的概念：一个程序同时执行多个任务。通常，每一个任务称为是一个线程(thread)，它是线程控制的简称。可以同时运行一个以上线程的程序称为多线程程序。多进程与多线程本质的区别在于每个进程拥有自己的一整套变量，而线程则共享数据。 中断线程没有可以强制线程终止的办法。然而，interrupt方法可以用来请求中断线程。当对一个线程调用interrup">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-11T13:48:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 并发">
+<meta name="twitter:description" content="多线程与多进程的区别多线程程序在较低的层次上扩展了多任务的概念：一个程序同时执行多个任务。通常，每一个任务称为是一个线程(thread)，它是线程控制的简称。可以同时运行一个以上线程的程序称为多线程程序。多进程与多线程本质的区别在于每个进程拥有自己的一整套变量，而线程则共享数据。 中断线程没有可以强制线程终止的办法。然而，interrupt方法可以用来请求中断线程。当对一个线程调用interrup">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/27/Java-并发/">
+
+
+
+
+
+  <title>Java 并发 | llxu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">llxu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-male"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/Java-并发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="llxu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="llxu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 并发</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T20:30:07+08:00">
+                2018-08-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T21:48:42+08:00">
+                2019-03-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-source/" itemprop="url" rel="index">
+                    <span itemprop="name">Java source</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+            
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="多线程与多进程的区别"><a href="#多线程与多进程的区别" class="headerlink" title="多线程与多进程的区别"></a>多线程与多进程的区别</h2><p>多线程程序在较低的层次上扩展了多任务的概念：一个程序同时执行多个任务。通常，每一个任务称为是一个线程(thread)，它是线程控制的简称。可以同时运行一个以上线程的程序称为多线程程序。多进程与多线程本质的区别在于每个进程拥有自己的一整套变量，而线程则共享数据。</p>
+<h2 id="中断线程"><a href="#中断线程" class="headerlink" title="中断线程"></a>中断线程</h2><p>没有可以强制线程终止的办法。然而，interrupt方法可以用来请求中断线程。当对一个线程调用interrupt方法时，线程的中断状态将被置位。这是每一个线程都具有的Boolean标志。每个线程都应该不时地的检查这个标志，以判断线程是否被中断。</p>
+<p>有两个非常类似的方法，interrupt和isInterrupted。interrupt方法是一个静态方法，它检测当前的线程是否被中断。而且，调用interrupt方法会清除改该线程的中断状态。另一方面，isInterrupted方法是一个实例方法，可用来检测是否有线程中断。调用这个方法不会改变中断状态。</p>
+<h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><ul>
+<li>New（新创建）</li>
+<li>Runnable（可运行）</li>
+<li>blocked（被阻塞）</li>
+<li>Waiting（等待）</li>
+<li>Timed waiting（计时等待）</li>
+<li>Terminated（被终止）</li>
+</ul>
+<h3 id="新创建线程"><a href="#新创建线程" class="headerlink" title="新创建线程"></a>新创建线程</h3><p>当一个线程处于新创建时，程序还没有开始运行线程中的代码，在线程运行之前还有一些基础工作要做</p>
+<h3 id="可运行线程"><a href="#可运行线程" class="headerlink" title="可运行线程"></a>可运行线程</h3><p>调用start方法，线程处于runnable状态。一个可运行的线程可能正在运行也可能没有运行，这取决于操作系统给线程提供运行的时间。</p>
+<h3 id="被阻塞进程和等待进程"><a href="#被阻塞进程和等待进程" class="headerlink" title="被阻塞进程和等待进程"></a>被阻塞进程和等待进程</h3><ul>
+<li>当一个线程处于被阻塞或等待状态时，它暂时不活动，它不运行任何代码且消耗最少的资源，直到线程调度器重新激活它。当一个线程试图获取一个内部的对象锁（而不是java.util.concurrent库中的锁），而该锁又被其他线程持有，则该线程进入阻塞状态。当所有其他线程释放该锁，并且线程调度器允许本线程持有它的时候，该线程将变成非阻塞状态。</li>
+<li>当线程等待另一个线程调度器一个条件时，它自己进入等待状态。</li>
+<li>带有超时参数的方法：Thread.sleep,object.wait,thread.join,lock.trylock以及condition.await的计时版。调用它们导致线程进入计时等待。</li>
+</ul>
+<h3 id="被终止的线程"><a href="#被终止的线程" class="headerlink" title="被终止的线程"></a>被终止的线程</h3><p>线程因如下的两个原因之一而被终止：</p>
+<ul>
+<li>因为run方法正常退出而自然死亡。</li>
+<li>因为一个没有捕获的异常终止了run方法而意外死亡。</li>
+</ul>
+<h2 id="线程属性"><a href="#线程属性" class="headerlink" title="线程属性"></a>线程属性</h2><h3 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h3><p>在java程序中，每一个线程都有一个优先级。默认情况下，一个线程的继承它的父线程的优先级。可以使用setpriority方法提高或者降低任何线程的优先级。可以将优先级设置为在MIN_PRIORITY (在Thread类中定义为1)与MAX_PRIORITY (定义为10)之间的任何值。NORM_PRIORITY被定义为5。</p>
+<h3 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h3><p>可以通过调用</p>
+<blockquote>
+<p>t.setDeamon(true);</p>
+</blockquote>
+<p>将线程转换为守护线程。守护线程的唯一用途就是为其他线程提供服务。如计时线程。</p>
+<h3 id="未捕获异常处理器"><a href="#未捕获异常处理器" class="headerlink" title="未捕获异常处理器"></a>未捕获异常处理器</h3><p>线程的run方法不能抛出任何受查异常，但是非受查异常会导致线程终止，在这种情况下，线程就死亡了。但是，不需要任何catch子句来处理可以被传播的异常。相反，就在线程死亡之前，异常被传递到一个用于未捕获异常的处理器。</p>
+<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>两种机制防止代码块受到并发控制的干扰。java语言提供一个synchronized关键字达到这一目的，并且java SE 5.0引入了ReentranLock类。</p>
+<blockquote>
+<p>ReentranLock（）<br>构建一个可以被用来保护临界区的可重入锁</p>
+<p>ReentranLock（boolean fair）<br>构建一个带有公平策略的锁。一个公平锁偏爱等待时间最长的线程。但是，这一公平的保证将大大降低性能。所以，默认情况下，锁是没有被强制为公平的。</p>
+</blockquote>
+<p> Synchronize关键字：如果一个方法用synchronize关键字声明，那么对象的锁将保护整个方法。也就是说，要调用该方法，线程必须获得内部的对象锁。</p>
+<p><strong>注释</strong>:wait、notifyAll以及notify方法是Object类的final方法。Condition方法必须被命名为await、signalAll和signal以便它们不会与那些方法发生冲突。</p>
+<p>内部锁和条件存在一些局限。包括：</p>
+<ul>
+<li>不能中断一个正在试图获得锁的线程。</li>
+<li>试图获得锁时不能设定超时。</li>
+<li>每个锁仅有单一的条件时，可能是不够的</li>
+</ul>
+<p>监视器具有如下的特性：</p>
+<ul>
+<li>监视器是只包含私有域的类。</li>
+<li>每个监视器类的对象有一个相关的锁。</li>
+<li>使用该锁对所有的方法进行加锁。</li>
+<li>该锁可以有任意多个相关条件。</li>
+</ul>
+<p>在下述三个方面java对象不同于监视器，从而使得线程的安全性下降：</p>
+<ul>
+<li>域不要求必须是private</li>
+<li>方法不要求必须是synchronized</li>
+<li>内部锁对客户是可用的</li>
+</ul>
+<p>volatile关键字为实例域的同步访问提供了一种免锁机制。如果声明一个域为volatile，那么编译器和虚拟机就知道该域是可能被另一个线程并发更新的。</p>
+<p><strong>警告：</strong>volatile变量不能提供原子性。例如，方法</p>
+<pre><code>public void flipDone(){done !=done; }//not automic</code></pre><p>不能确保翻转域中的值。不能保证读取、翻转和写入不被中断。</p>
+<p>为什么弃用stop和suspend方法？</p>
+<p>stop：该方法终结所有未结束的方法，包括run方法。当线程被终止，立即释放被它锁住的所有对象的锁。这会导致对象处于不一致的状态。</p>
+<p>suspend：与stop不同，suspend不会破坏对象，但是，如果用suspend挂起一个持有一个锁的线程，那么，该锁在恢复之前是不可用的。如果调用suspend挂起一个持有一个锁的进程，那么，该锁在恢复之前是不可用的。如果调用suspend方法的线程试图获得同一个锁，那么程序死锁：被挂起的线程等着被恢复，而将其挂起的线程等待获得锁。</p>
+<p><strong>高效的映射、集和队列</strong></p>
+<p>java.util.concurrent包提供了映射、有序集和队列的高效实现：</p>
+<p>ConcurrentHashMap,ConcurrentSkipListMap,ConcurrentSkipSet和ConcurrentLinkedQueue。</p>
+<p>如果程序中创建了大量的生命周期很短的线程，应该使用线程池。</p>
+<p><strong>执行器</strong></p>
+<hr>
+<p>newcachedThreadpool：必要时创建新线程；空闲线程会被保留60s</p>
+<hr>
+<p>newFixedThreadPool：该池包含固定数量的线程；空闲线程会一直被保留</p>
+<hr>
+<p>newSingleThreadExecutor:只有一个线程的“池”，该线程顺序执行每一个提交的任务（类似于Swing事件分配线程）</p>
+<hr>
+<p>newScheduledThreadPool：用于预定执行而构建的固定线程池，替代java.util.Timer</p>
+<hr>
+<p>newSingleThreadScheduledExecutor:用于预定执行而构建的单线程“池”</p>
+<p><em>(完结)</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/29/hadoop-3-0-集群部署/" rel="next" title="hadoop 3.0 集群部署">
+                <i class="fa fa-chevron-left"></i> hadoop 3.0 集群部署
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/java-的基本程序设计结构/" rel="prev" title="java 的基本程序设计结构">
+                java 的基本程序设计结构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="llxu">
+            
+              <p class="site-author-name" itemprop="name">llxu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:llxuctt@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://drive.google.com/file/d/1o7Jvsd7w8STWpLzzzNuBSL4adsdll5IE/view?usp=sharing" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://drive.google.com/file/d/1l6azdpuQocKYNFemLGHLshys9RqHHjnf/view?usp=sharing" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>Wechat</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://j.map.baidu.com/D0wnG" target="_blank" title="Location">
+                      
+                        <i class="fa fa-fw fa-street-view"></i>Location</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程与多进程的区别"><span class="nav-number">1.</span> <span class="nav-text">多线程与多进程的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断线程"><span class="nav-number">2.</span> <span class="nav-text">中断线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程状态"><span class="nav-number">3.</span> <span class="nav-text">线程状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新创建线程"><span class="nav-number">3.1.</span> <span class="nav-text">新创建线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可运行线程"><span class="nav-number">3.2.</span> <span class="nav-text">可运行线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#被阻塞进程和等待进程"><span class="nav-number">3.3.</span> <span class="nav-text">被阻塞进程和等待进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#被终止的线程"><span class="nav-number">3.4.</span> <span class="nav-text">被终止的线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程属性"><span class="nav-number">4.</span> <span class="nav-text">线程属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程优先级"><span class="nav-number">4.1.</span> <span class="nav-text">线程优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#守护线程"><span class="nav-number">4.2.</span> <span class="nav-text">守护线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未捕获异常处理器"><span class="nav-number">4.3.</span> <span class="nav-text">未捕获异常处理器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步"><span class="nav-number">5.</span> <span class="nav-text">同步</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">llxu</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">7.4k</span>
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>

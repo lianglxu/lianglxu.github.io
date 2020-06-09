@@ -1,71 +1,952 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.9.0">
-  <title>llxu</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="resume.css">
-</head>
 
-  <body>
-  <div class="container">
-  <header>
-    <div class="name-wrapper">
-      <div id="fullname" class="title">
-        
-      </div>
-      <div id="jobtitle" class="sub-title">
-        
-      </div>
-    </div>
-    <div id="contact" class="contact">
-      
-    </div>
-    <div class="portrait">
-      
-    </div>
-  </header>
 
-  <section id="education">
-    <div class="section-title">
-      Education
-    </div>
-    <div class="section-content">
-      
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="section-title">
-      Experience
-    </div>
-    <div class="section-content">
-      
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="section-title">
-      Projects
-    </div>
-    <div class="section-content">
-      
-    </div>
-  </section>
-
-  <section id="skills">
-      <div class="section-title">
-        Skills
-      </div>
-      <div class="section-content">
-        
-      </div>
-    </section>
-
-</div>
 
   
-  </body>
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="configuration,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在28台PC集群上搭建HADOOP 3.0 集群在Apache官网上可下载 Hadoop 3.0 GA版，有编译好的二进制版本，另外也附有源码，本帖重点介绍安装过程，故直接使用编译好的二进制版本进行安装，后续文章将继续分析及改写源码。 1.系统安装ubuntu 16.04 64 位（28台）建议在/etc/hostname 下修改节点名称，如nodei(i=1..28)，在/etc/hosts 下">
+<meta name="keywords" content="configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hadoop 3.0 集群部署">
+<meta property="og:url" content="http://yoursite.com/2017/12/29/hadoop-3-0-集群部署/index.html">
+<meta property="og:site_name" content="llxu">
+<meta property="og:description" content="在28台PC集群上搭建HADOOP 3.0 集群在Apache官网上可下载 Hadoop 3.0 GA版，有编译好的二进制版本，另外也附有源码，本帖重点介绍安装过程，故直接使用编译好的二进制版本进行安装，后续文章将继续分析及改写源码。 1.系统安装ubuntu 16.04 64 位（28台）建议在/etc/hostname 下修改节点名称，如nodei(i=1..28)，在/etc/hosts 下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/oz2LAAC.jpg">
+<meta property="og:image" content="https://i.imgur.com/j2IvLQF.jpg">
+<meta property="og:image" content="https://i.imgur.com/Mpnqcis.jpg">
+<meta property="og:updated_time" content="2019-03-11T13:54:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hadoop 3.0 集群部署">
+<meta name="twitter:description" content="在28台PC集群上搭建HADOOP 3.0 集群在Apache官网上可下载 Hadoop 3.0 GA版，有编译好的二进制版本，另外也附有源码，本帖重点介绍安装过程，故直接使用编译好的二进制版本进行安装，后续文章将继续分析及改写源码。 1.系统安装ubuntu 16.04 64 位（28台）建议在/etc/hostname 下修改节点名称，如nodei(i=1..28)，在/etc/hosts 下">
+<meta name="twitter:image" content="https://i.imgur.com/oz2LAAC.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/29/hadoop-3-0-集群部署/">
+
+
+
+
+
+  <title>hadoop 3.0 集群部署 | llxu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">llxu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-male"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/hadoop-3-0-集群部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="llxu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="llxu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hadoop 3.0 集群部署</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T20:30:07+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T21:54:07+08:00">
+                2019-03-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hadoop/" itemprop="url" rel="index">
+                    <span itemprop="name">Hadoop</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+            
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="在28台PC集群上搭建HADOOP-3-0-集群"><a href="#在28台PC集群上搭建HADOOP-3-0-集群" class="headerlink" title="在28台PC集群上搭建HADOOP 3.0 集群"></a>在28台PC集群上搭建HADOOP 3.0 集群</h1><p>在Apache官网上可下载 <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="noopener">Hadoop 3.0</a> GA版，有编译好的二进制版本，另外也附有源码，本帖重点介绍安装过程，故直接使用编译好的二进制版本进行安装，后续文章将继续分析及改写源码。</p>
+<h3 id="1-系统安装ubuntu-16-04-64-位（28台）"><a href="#1-系统安装ubuntu-16-04-64-位（28台）" class="headerlink" title="1.系统安装ubuntu 16.04 64 位（28台）"></a>1.系统安装ubuntu 16.04 64 位（28台）</h3><p>建议在/etc/hostname 下修改节点名称，如nodei(i=1..28)，在/etc/hosts 下配置各节点与内网IP的对应，插入如下代码（IP自行定义，建议设置为连续值，方便管理）：  </p>
+<pre><code>#Hadoop nodes cluster
+192.168.1.81 node1
+192.168.1.80 node2
+192.168.1.79 node3
+192.168.1.78 node4
+192.168.1.77 node5
+192.168.1.76 node6
+192.168.1.75 node7
+192.168.1.74 node8
+192.168.1.73 node9
+192.168.1.72 node10
+192.168.1.71 node11
+192.168.1.70 node12
+192.168.1.69 node13
+192.168.1.68 node14
+192.168.1.67 node15
+192.168.1.66 node16
+192.168.1.65 node17
+192.168.1.64 node18
+192.168.1.63 node19
+192.168.1.62 node20
+192.168.1.61 node21
+192.168.1.60 node22
+192.168.1.59 node23
+192.168.1.58 node24
+192.168.1.57 node25
+192.168.1.56 node26
+192.168.1.55 node27
+192.168.1.54 node28
+#Hadoop nodes cluster end</code></pre><h4 id="1-1修改系统的源"><a href="#1-1修改系统的源" class="headerlink" title="1.1修改系统的源"></a>1.1修改系统的源</h4><p>为简化操作，提供两种方法替换源：</p>
+<p>1.使用 snullp 大叔开发的 配置生成器替换掉/etc/apt/sources.list下的sources.list。先下载<a href="https://mirrors.ustc.edu.cn/repogen/" target="_blank" rel="noopener">sources.list（ubuntu）</a>版,然后执行：</p>
+<pre><code>$sudo sed -i &apos;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list
+$sudo apt-get update</code></pre><p>2.直接使用命令</p>
+<pre><code>$sudo cp sosources.list /etc/apt/sources.list 
+$sudo apt-get update</code></pre><h4 id="1-2记录每台的Mac地址"><a href="#1-2记录每台的Mac地址" class="headerlink" title="1.2记录每台的Mac地址"></a>1.2记录每台的Mac地址</h4><p>记录Mac地址的目的是为了之后在路由上配置静态IP与Mac地址绑定，使用<strong>ifconfig</strong>即可查看内网IP与Mac地址，此处建议用文档拷贝下来。</p>
+<h3 id="2-ssh-服务配置"><a href="#2-ssh-服务配置" class="headerlink" title="2.ssh 服务配置"></a>2.ssh 服务配置</h3><h4 id="2-1-安装ssh服务"><a href="#2-1-安装ssh服务" class="headerlink" title="2.1 安装ssh服务"></a>2.1 安装ssh服务</h4><p>直接使用<strong>apt-get install</strong></p>
+<pre><code>$sudo apt-get install ssh</code></pre><h4 id="2-2-配置PC间的无密访问"><a href="#2-2-配置PC间的无密访问" class="headerlink" title="2.2 配置PC间的无密访问"></a>2.2 配置PC间的无密访问</h4><p>在.ssh目录下执行命令：</p>
+<pre><code>$ssh-keygen -t rsa </code></pre><p>连续四下回车，生成id_rsa（私钥）、id_ras.pub（公钥）</p>
+<p>给自己主机设置无密访问：</p>
+<pre><code>$ssh-copy-id nodei #i为本地主机的序号</code></pre><p>配置集群间无密访问：</p>
+<pre><code>$scp ~/.ssh/authorized_keys hadoop@node1:~/.ssh/nodei/i #i为本地主机的序号</code></pre><p>以上均需在每台PC上执行，然后在node1的~/.ssh/目录下就有了2..28节点的密码值authorized_keys，然后在命令行执行：</p>
+<pre><code>$for i in {2..28};do cat $i &gt;&gt; authorized_keys; done</code></pre><p>即把每个节点密码值都追加到node1上的authorized_keys， 最后再把所有节点的密码文件authorized_keys发送到各个节点，使用脚本：</p>
+<pre><code>$for i in {2..28};do scp ~/.ssh/authorized_keys hadoop@node$i:~/.ssh/;done</code></pre><p>至此已完成各节点间hadoop用户下的无密访问。为了有时能够执行root权限脚本，比如用脚本给集群关机、重启，给系统文件夹写文件等，可在root用户下重复以上操作（建议操作）。</p>
+<h3 id="3-端口转发"><a href="#3-端口转发" class="headerlink" title="3.端口转发"></a>3.端口转发</h3><h4 id="3-1-静态IP设置"><a href="#3-1-静态IP设置" class="headerlink" title="3.1 静态IP设置"></a>3.1 静态IP设置</h4><p>两种方法：<br>1.在路由器直接配置IP与PC机Mac地址的绑定，如图<br><img src="https://i.imgur.com/oz2LAAC.jpg" alt></p>
+<p><strong>注意：</strong>有些路由器的存储空间较小，比如只能存8个，这样就很无奈，建议使用千M路由器，存储容量一般会大很多，可以将Mac地址全部直接绑定，这样操作非常方便！</p>
+<p>2.可以在本地直接设置静态IP<br>可以直接手动在图形化界面操作，也可以用命令行（参见<a href="https://www.jianshu.com/p/d69a95aa1ed7" target="_blank" rel="noopener">ubuntu 16.04 设置静态IP</a>）。</p>
+<h4 id="3-2路由器设置"><a href="#3-2路由器设置" class="headerlink" title="3.2路由器设置"></a>3.2路由器设置</h4><p>建议使用路由器上虚拟服务器上进行端口转发一下，如方法1中图。<br><strong>注意：</strong>ssh 服务的默认端口为22</p>
+<h3 id="4-Java-安装"><a href="#4-Java-安装" class="headerlink" title="4.Java 安装"></a>4.Java 安装</h3><p>Hadoop 3.0需要JDK 1.8+（源码BUILDING文件已强调），建议使用Oracle JDK1.8+。</p>
+<h4 id="4-1-Oracle-JAVA安装"><a href="#4-1-Oracle-JAVA安装" class="headerlink" title="4.1 Oracle JAVA安装"></a>4.1 Oracle JAVA安装</h4><p>在<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle官网上</a>下载JDK，SE版本即可，本文示例为jdk-8u151-linux-x64.tar.gz。步骤如下：</p>
+<pre><code>$sudo mkdir /usr/lib/jvm #在系统文件夹下新建jvm文件夹
+$tar zxvf jdk-8u151-linux-x64.tar.gz -C /usr/lib/jvm/ #解压</code></pre><h4 id="4-2-环境变量配置"><a href="#4-2-环境变量配置" class="headerlink" title="4.2 环境变量配置"></a>4.2 环境变量配置</h4><p>打开系统环境变量文件/etc/profile</p>
+<pre><code>$sudo vim /etc/profile</code></pre><p>插入下面几行</p>
+<p><code>#set JAVA environment</code><br><code>JAVA_HOME=/usr/lib/jvm/jdk1.8.0_151</code><br><code>PATH=$JAVA_HOME/bin:$PATH</code><br><code>CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</code><br><code>export JAVA_HOME</code><br><code>export PATH</code></p>
+<p>最后source一下：</p>
+<pre><code>$source /etc/profie</code></pre><h3 id="5-Hadoop-3-0安装及配置"><a href="#5-Hadoop-3-0安装及配置" class="headerlink" title="5.Hadoop 3.0安装及配置"></a>5.Hadoop 3.0安装及配置</h3><h4 id="5-1-Hadoop-安装"><a href="#5-1-Hadoop-安装" class="headerlink" title="5.1 Hadoop 安装"></a>5.1 Hadoop 安装</h4><p>在~目录下解压hadoop-3.0.0.tar.gz，使用编译好的二进制版本进行安装：</p>
+<pre><code>$tar zxvf hadoop-3.0.0.tar.gz 
+$mv hadoop-3.0.0 ~/hadoop</code></pre><p>如4.2，配置下Hadoop的环境变量：<br>/etc/profile插入下面几行：</p>
+<p><code>export HADOOP_HOME=/home/hadoop/hadoop</code><br><code>export PATH=$PATH:$HADOOP_HOME/sbin</code><br><code>export PATH=$PATH:$HADOOP_HOME/binexport HADOOP_HOME=/home/hadoop/hadoop</code><br><code>export PATH=$PATH:$HADOOP_HOME/sbin</code><br><code>export PATH=$PATH:$HADOOP_HOME/bin</code></p>
+<p>最后source一下：</p>
+<pre><code>$source /etc/profie</code></pre><h4 id="5-2-Hadoop-参数配置"><a href="#5-2-Hadoop-参数配置" class="headerlink" title="5.2 Hadoop 参数配置"></a>5.2 Hadoop 参数配置</h4><p>参数配置主要有下面几个文件：  </p>
+<pre><code>#hadoop-env.sh   
+export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_151
+
+#core-site.xml
+&lt;configuration&gt;
+&lt;property&gt;  
+    &lt;name&gt;fs.defaultFS&lt;/name&gt;  
+    &lt;value&gt;hdfs://node1:/&lt;/value&gt; 
+&lt;/property&gt;
+&lt;/configuration&gt;
+
+#hdfs-site.xml
+&lt;configuration&gt;
+&lt;property&gt;  
+&lt;name&gt;dfs.replication&lt;/name&gt;  
+&lt;value&gt;3&lt;/value&gt;  
+&lt;/property&gt;
+&lt;property&gt;
+      &lt;name&gt;dfs.permissions&lt;/name&gt;
+      &lt;value&gt;false&lt;/value&gt;
+&lt;/property&gt; 
+&lt;/configuration&gt; 
+
+#yarn-site.xml
+&lt;configuration&gt;
+ &lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+   &lt;value&gt;node1&lt;/value&gt;
+ &lt;/property&gt;
+ &lt;property&gt;
+   &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+   &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+ &lt;/property&gt;
+&lt;!-- Site specific YARN configuration properties --&gt;
+&lt;/configuration&gt;
+
+#workers
+node1
+node2
+node3
+node4
+node5
+node6
+node7
+node8
+node9
+node10
+node11
+node12
+node13
+node14
+node15
+node16
+node17
+node18
+node19
+node20
+node21
+node22
+node23
+node24
+node25
+node26
+node27
+node28</code></pre><p>用脚本发送到每个节点：</p>
+<pre><code>$for i in {2..28};do scp -r ~/hadoop hadoop@node$i:~/;done</code></pre><p>在开启之前，建议重启下机器，脚本如下（已配置好root用户下各节点点无密访问）：</p>
+<pre><code>#!/bin/sh
+for i in $(seq 2 28)
+do
+ssh root@node$i &quot;shutdown -r 1&quot;
+done
+reboot now</code></pre><p>开启Hadoop 3.0集群</p>
+<pre><code>$hdfs namenode -format #格式化namenode
+$start-dfs.sh #开启HDFS
+$start-yarn.sh #开启MapReduce
+$netstat -lnt #查看9870端口是否开启</code></pre><p>最后在Firefox可访问node1:9870，界面如下：<br><img src="https://i.imgur.com/j2IvLQF.jpg" alt></p>
+<p>至此，已完成Hadoop 3.0集群搭建！插网线不易，发文不易，且行且珍惜！附集群实景图：<br><img src="https://i.imgur.com/Mpnqcis.jpg" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/configuration/" rel="tag"># configuration</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/27/Java-并发/" rel="prev" title="Java 并发">
+                Java 并发 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="llxu">
+            
+              <p class="site-author-name" itemprop="name">llxu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:llxuctt@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://drive.google.com/file/d/1o7Jvsd7w8STWpLzzzNuBSL4adsdll5IE/view?usp=sharing" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://drive.google.com/file/d/1l6azdpuQocKYNFemLGHLshys9RqHHjnf/view?usp=sharing" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>Wechat</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://j.map.baidu.com/D0wnG" target="_blank" title="Location">
+                      
+                        <i class="fa fa-fw fa-street-view"></i>Location</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在28台PC集群上搭建HADOOP-3-0-集群"><span class="nav-number">1.</span> <span class="nav-text">在28台PC集群上搭建HADOOP 3.0 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-系统安装ubuntu-16-04-64-位（28台）"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.系统安装ubuntu 16.04 64 位（28台）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1修改系统的源"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1.1修改系统的源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2记录每台的Mac地址"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">1.2记录每台的Mac地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-ssh-服务配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.ssh 服务配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-安装ssh服务"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">2.1 安装ssh服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-配置PC间的无密访问"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">2.2 配置PC间的无密访问</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-端口转发"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.端口转发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-静态IP设置"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">3.1 静态IP设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2路由器设置"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">3.2路由器设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Java-安装"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.Java 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-Oracle-JAVA安装"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">4.1 Oracle JAVA安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-环境变量配置"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">4.2 环境变量配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Hadoop-3-0安装及配置"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.Hadoop 3.0安装及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-Hadoop-安装"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">5.1 Hadoop 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-Hadoop-参数配置"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">5.2 Hadoop 参数配置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">llxu</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">7.4k</span>
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
