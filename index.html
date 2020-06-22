@@ -266,8 +266,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-06-17T11:32:39+08:00">
-                2020-06-17
+              <time title="Post modified" itemprop="dateModified" datetime="2020-06-22T22:39:58+08:00">
+                2020-06-22
               </time>
             
           </span>
@@ -326,32 +326,38 @@
 <li><p><strong>SelectiveEC: Selective Reconstruction in Erasure-coded Storage Systems</strong><br> <strong>Liangliang Xu</strong>, Min Lyu, Qiliang Li, Lingjiang Xie and Yinlong Xu.<br> 12th USENIX Workshop on Hot Topics in Storage and File Systems (HotStorage 2020) accepted.<br> (AR: 26/64 = 40.6%)</p>
 </li>
 </ol>
-<h2 id="Selected-Projects"><a href="#Selected-Projects" class="headerlink" title="Selected Projects"></a>Selected Projects</h2><ol>
-<li><p><strong>A note on one weight and two weight projective Z<sub>4</sub>-codes.</strong></p>
+<h2 id="Selected-Projects"><a href="#Selected-Projects" class="headerlink" title="Selected Projects"></a>Selected Projects</h2><ol start="2">
+<li><p><strong>PDL</strong></p>
+<ul>
+<li>This project proposes an efficient PBD-based (Pairwise Block Design) Data Layout, PDL, to speed up data repair for single node failure in mixed erasure-coded distributed storage systems. It achieves almost uniform distribution, and higher repair performance due to reduced cross-rack traffic and load balance of read and write I/Os during repair process.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>I design the data distribution method, and the corresponding failure recovery scheme. And I also implement them in Hadoop 3.1.1. </li>
+</ul>
+<ol start="3">
+<li><p><strong>SelectiveEC</strong></p>
+<ul>
+<li>This project proposes a balanced scheduling module, SelectiveEC, to dynamically select some stripes to be reconstructed in a batch, and select source and replacement nodes for each reconstruction task. It achieves balanced network recovery traffic, computing resources and disk I/Os against single node failure in erasure-coded storage systems.</li>
+<li>I design the scheduling algorithm, build the SelectiveEC prototype and validate it by simulation. </li>
+</ul>
+</li>
+<li><p><strong>D<sup>3</sup></strong></p>
+<ul>
+<li>The proposed distribution D<sup>3</sup> uniformly distributes data/parity blocks among nodes in large scale erasure-coded distributed storage systems, and minimizes the cross-rack repair traffic against a single node failure. </li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>I integrate the distribution D<sup>3</sup> into HDFS-EC module of Hadoop 3.1.0 and evaluate the repair performance over Reed-Solomon codes. In the journal version, I extend it to locally repairable codes, provide efficient strategy to maintain the D<sup>3</sup> data layout after recovery, and conduct more experimental evaluations.</p>
+<p> <strong>4. A note on one weight and two weight projective Z<sub>4</sub>-codes.</strong></p>
 <ul>
 <li>This is the work in my undergraduate.</li>
 <li>I solve the open problems about algebraic codes, moreover, I work out the diophantine problem and then give the sufficient conditions for the nonexistence of two-Lee weight projective codes over Z<sub>4</sub> with type 4<sup>k<sub>1</sub></sup>2<sup>k<sub>2</sub></sup>. </li>
 </ul>
 </li>
-<li><p><strong>PDL</strong></p>
-<ul>
-<li>PDL is an efficient PBD-based (Pairwise Block Design) Data Layout scheme, to speed up data repair for single node failure in mixed erasure-coded distributed file systems. It achieves almost uniform distribution, a higher repair performance with reduced cross-rack traffic and load balance of read and write I/Os during repair process.</li>
-<li>I build the prototype and improve repair performance for state-of-the-art data layouts in Hadoop 3.1.1. </li>
 </ul>
-</li>
-<li><p><strong>SelectiveEC</strong></p>
-<ul>
-<li>SelectiveEC is a balanced scheduling module, which schedules reconstruction tasks out of order by dynamically selecting some stripes to be reconstructed into a batch, selecting source nodes and replacement nodes for each reconstruction task. So it achieves balanced network recovery traffic, computing resources and disk I/Os against single node failure in erasure-coded storage systems.</li>
-<li>I build the SelectiveEC prototype and validate it by simulation. In next work, we will implement SelectiveEC atop HDFS, QFS or Ceph. </li>
-</ul>
-</li>
-<li><p><strong>D<sup>3</sup></strong></p>
-<ul>
-<li>D<sup>3</sup>  is a deterministic data distribution for single erasure-coded distributed storage systems. </li>
-<li>I integrate the D<sup>3</sup>  into HDFS-EC module of Hadoop 3.1.0 and evaluate the repair performance.  In the journal version, I extend normal data placement and recovery algorithmic of D<sup>3</sup>  to Locally Repairable Codes, provide efficient strategy to maintain the original D<sup>3</sup>  data layout after recovery, and conduct more experimental evaluation.</li>
-</ul>
-</li>
-</ol>
 <h2 id="Patents"><a href="#Patents" class="headerlink" title="Patents"></a>Patents</h2><ol>
 <li>吕敏，<strong>徐亮亮</strong>，李启亮，谢灵江，许胤龙，“一种基于纠删码存储系统的负载均衡修复调度方法”，专利号：202010313968.5，申请时间：2020-04-20。</li>
 </ol>
@@ -439,7 +445,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">655</span>
+    <span title="Site words total count">661</span>
   
 </div>
 
