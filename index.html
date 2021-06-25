@@ -277,7 +277,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2021-06-25T16:31:05+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2021-06-25T16:33:24+08:00">
                 2021-06-25
               </time>
             
@@ -342,19 +342,19 @@
 <li>I design the incremental pipeline and metadata manage. This project is work in process. </li>
 </ul>
 </li>
-<li><p><strong>SelectiveEC</strong>[HotStorage 2020, TOS 2021]</p>
+<li><p><strong>SelectiveEC</strong> [HotStorage 2020, TOS 2021]</p>
 <ul>
 <li>This project proposes a balanced scheduling module, SelectiveEC, to dynamically select some stripes to be reconstructed in a batch, and select source and replacement nodes for each reconstruction task. It achieves balanced network recovery traffic, computing resources and disk I/Os against single node failure in erasure-coded storage systems.</li>
 <li>I design the scheduling algorithm, build the SelectiveEC prototype and validate it by simulation. </li>
 </ul>
 </li>
-<li><p><strong>PDL</strong>[INFOCOM 2020, TC 2021]</p>
+<li><p><strong>PDL</strong> [INFOCOM 2020, TC 2021]</p>
 <ul>
 <li>This project proposes an efficient PBD-based (Pairwise Block Design) Data Layout, PDL, to speed up data repair for single node failure in mixed erasure-coded distributed storage systems. It achieves almost uniform distribution, and higher repair performance due to reduced cross-rack traffic and load balance of read and write I/Os during repair process.</li>
 <li>I design the data distribution method, and the corresponding failure recovery scheme. And I also implement them in Hadoop 3.1.1. </li>
 </ul>
 </li>
-<li><p><strong>D<sup>3</sup></strong>[IPDPS2019, TPDS 2020]</p>
+<li><p><strong>D<sup>3</sup></strong> [IPDPS2019, TPDS 2020]</p>
 <ul>
 <li>The proposed distribution D<sup>3</sup> uniformly distributes data/parity blocks among nodes in large scale erasure-coded distributed storage systems, and minimizes the cross-rack repair traffic against a single node failure. </li>
 <li>I integrate the distribution D<sup>3</sup> into HDFS-EC module of Hadoop 3.1.0 and evaluate the repair performance over Reed-Solomon codes. In the journal version, I extend it to locally repairable codes, provide efficient strategy to maintain the D<sup>3</sup> data layout after recovery, and conduct more experimental evaluations.</li>
